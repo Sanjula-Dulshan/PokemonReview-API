@@ -7,5 +7,7 @@
         public Pokemon Pokemon { get; set; }
         public Category Category { get; set; }
 
+
+
     }
 }
