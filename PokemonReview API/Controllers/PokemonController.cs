@@ -20,12 +20,28 @@ namespace PokemonReview_API.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
         public IActionResult GetPokemens()
         {
-            var pokemens = _pokemonRepository.GetPokemons();
+            var pokemons = _pokemonRepository.GetPokemons();
 
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(pokemens);
+            return Ok(pokemons);
+        }
+
+        [HttpGet("{pokeId}")]
+        [ProducesResponseType(200, Type = typeof(Pokemon))]
+        [ProducesResponseType(400)]
+        public IActionResult GetPokemen(int pokeId)
+        {
+            if(!_pokemonRepository.PokemonExists(pokeId))
+                return NotFound();
+
+            var pokemon = _pokemonRepository.GetPokemon(pokeId);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(pokemon);
         }
     }
 }
