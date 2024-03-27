@@ -8,6 +8,11 @@ namespace PokemonReview_API.Repository
     {
         private readonly DataContext _context;
 
+        public OwnerRepository(DataContext context)
+        {
+            _context = context;
+        }
+
         public Owner GetOwner(int ownerId)
         {
             return _context.Owners.Where(o => o.Id == ownerId).FirstOrDefault();

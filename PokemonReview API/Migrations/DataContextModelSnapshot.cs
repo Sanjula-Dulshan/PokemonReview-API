@@ -143,6 +143,9 @@ namespace PokemonReview_API.Migrations
                     b.Property<int>("PokemonId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<int>("ReviewerId")
                         .HasColumnType("int");
 
@@ -181,7 +184,7 @@ namespace PokemonReview_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reviewer");
+                    b.ToTable("Reviewers");
                 });
 
             modelBuilder.Entity("PokemonReview_API.Models.Owner", b =>

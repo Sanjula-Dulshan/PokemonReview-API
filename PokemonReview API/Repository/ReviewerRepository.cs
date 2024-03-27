@@ -17,8 +17,6 @@ namespace PokemonReview_API.Repository
             _mapper = mapper;
         }
 
- 
-
         public Reviewer GetReviewer(int reviewerId)
         {
             return _context.Reviewers.Where(r => r.Id == reviewerId).Include(e => e.Reviews).FirstOrDefault();
