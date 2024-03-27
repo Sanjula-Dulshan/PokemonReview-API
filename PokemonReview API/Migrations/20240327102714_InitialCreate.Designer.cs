@@ -12,7 +12,7 @@ using PokemonReview_API.Data;
 namespace PokemonReview_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240325152107_InitialCreate")]
+    [Migration("20240327102714_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -145,6 +145,9 @@ namespace PokemonReview_API.Migrations
                     b.Property<int>("PokemonId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<int>("ReviewerId")
                         .HasColumnType("int");
 
@@ -183,7 +186,7 @@ namespace PokemonReview_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reviewer");
+                    b.ToTable("Reviewers");
                 });
 
             modelBuilder.Entity("PokemonReview_API.Models.Owner", b =>

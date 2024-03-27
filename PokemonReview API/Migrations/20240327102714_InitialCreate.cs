@@ -50,7 +50,7 @@ namespace PokemonReview_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reviewer",
+                name: "Reviewers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -60,7 +60,7 @@ namespace PokemonReview_API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reviewer", x => x.Id);
+                    table.PrimaryKey("PK_Reviewers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,6 +116,7 @@ namespace PokemonReview_API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false),
                     ReviewerId = table.Column<int>(type: "int", nullable: false),
                     PokemonId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -129,9 +130,9 @@ namespace PokemonReview_API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reviews_Reviewer_ReviewerId",
+                        name: "FK_Reviews_Reviewers_ReviewerId",
                         column: x => x.ReviewerId,
-                        principalTable: "Reviewer",
+                        principalTable: "Reviewers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -207,7 +208,7 @@ namespace PokemonReview_API.Migrations
                 name: "Pokemon");
 
             migrationBuilder.DropTable(
-                name: "Reviewer");
+                name: "Reviewers");
 
             migrationBuilder.DropTable(
                 name: "Countries");
