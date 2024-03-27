@@ -16,7 +16,7 @@ namespace PokemonReview_API.Data
         public DbSet<PokemonOwner> PokemonOwners { get; set; }
         public DbSet<PokemonCategory> PokemonCategories { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<Reviewer> Reviewer { get; set; }
+        public DbSet<Reviewer> Reviewers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
